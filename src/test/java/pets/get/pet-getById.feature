@@ -5,5 +5,5 @@ Feature: Get a pet on swagger
     Given url "https://petstore.swagger.io/v2/pet/"+ petId
     When method get
     Then status 200
-    And match $.name == 'fenix'
+    And match $.name == petName
 
