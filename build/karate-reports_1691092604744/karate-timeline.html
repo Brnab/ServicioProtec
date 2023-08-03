@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-1","id":1},{"content":"pool-1-thread-2","id":2},{"content":"pool-1-thread-3","id":3},{"content":"pool-1-thread-4","id":4}];
+var items = [{"id":1,"group":1,"content":"pets\/get\/pet-getById[1:3]","start":1691092431875,"end":1691092433421,"title":"pets\/get\/pet-getById[1:3] 14:53:51.875-14:53:53.421 get a pet by id","className":"failed"},{"id":2,"group":2,"content":"pets\/get\/pet-getByStatus[1:3]","start":1691092431875,"end":1691092433713,"title":"pets\/get\/pet-getByStatus[1:3] 14:53:51.875-14:53:53.713 get a pet by status"},{"id":3,"group":3,"content":"pets\/post\/pet-post[1:3]","start":1691092431875,"end":1691092433144,"title":"pets\/post\/pet-post[1:3] 14:53:51.875-14:53:53.144 post a pet"},{"id":4,"group":4,"content":"pets\/put\/pet-put[1:3]","start":1691092431875,"end":1691092433438,"title":"pets\/put\/pet-put[1:3] 14:53:51.875-14:53:53.438 put a pet"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
