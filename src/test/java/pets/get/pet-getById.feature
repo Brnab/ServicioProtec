@@ -7,3 +7,4 @@ Feature: Get a pet on swagger
     Then status 200
     And match $.name == petName
 
+
